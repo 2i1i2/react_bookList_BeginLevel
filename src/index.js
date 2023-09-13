@@ -1,17 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import "./index.css";
+
+function BookList() {
+  return (
+    <section className="book_container">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
+
+const Book = () => {
+  return (
+    <article className="main_book">
+      <Image />
+      <Title />
+      <AutherAndDate />
+      <Rating />
+      <RemarkSign />
+      <LimitedTime />
+      <Price className="price"/>
+    </article>
+  );
+};
+
+const Image = () => (
+  <img
+    src="https://m.media-amazon.com/images/I/71wrQ0bR8+S._AC_UY218_.jpg"
+    alt="how to win influcient people"
+  />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Title = () => <h4 className="title">How To Win Friends and Influence People</h4>
+
+
+const AutherAndDate = () => <p className="auther_and_date">by Dale Carnegie | 1 January 2021</p>
+
+const Rating = () => <sapn className="rating">rating</sapn>
+
+const RemarkSign =()=> <p className="paperback">Pageback</p>
+
+const LimitedTime = () => <p className="limited">Limited tim deal</p>
+
+const Price = () => <p className="price"><span className="pd"> ₹89</span> <del>179</del>(50% off)</p>
+
+
+ReactDOM.render(<BookList />, document.getElementById("root"));
